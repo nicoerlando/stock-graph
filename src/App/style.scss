@@ -1,0 +1,32 @@
+$default-gutter: 16px;
+
+@function rem-calc($pixels, $gutter: $default-gutter) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($gutter)) {
+    $gutter: $gutter * 1px;
+  }
+
+  @return ($pixels / $gutter) * 1rem;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__Header {
+    font-size: rem-calc(56);
+  }
+
+  &__LineContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80vw;
+  }
+}
